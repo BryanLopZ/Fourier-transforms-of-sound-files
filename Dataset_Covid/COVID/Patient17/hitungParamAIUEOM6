@@ -1,0 +1,544 @@
+subjectNum$="17"
+namaFileOut$="Param"+subjectNum$+".txt"
+
+# HURUF A ======================================================================
+orang$="A"+subjectNum$+"_"
+numDay=7
+day#={2,3,7,8,14,15,17}
+
+for i from 1 to numDay
+
+	namafile$=orang$+string$(day#[i])+".wav"
+	namaSound$="Sound "+orang$+string$(day#[i])
+	namaPitch$="Pitch "+orang$+string$(day#[i])
+	namaPointProcess$="PointProcess "+orang$+string$(day#[i])+"_"+orang$+string$(day#[i])
+
+	namaFormant$="Formant "+orang$+string$(day#[i])
+	namaIntensity$="Intensity "+orang$+string$(day#[i])
+
+	s=Read from file: namafile$
+	Scale peak: 0.99
+
+	View & Edit
+	editor: s		
+		Move cursor to: 0
+		Move end of selection by: 0.5
+		Extract selected sound (time from 0)
+		Close
+	endeditor
+	selectObject: namaSound$
+	Remove
+	selectObject: "Sound untitled"
+	Rename: orang$+string$(day#[i])
+	
+	selectObject: namaSound$
+	To Pitch (cc): 0, 75, 15, "no", 0.03, 0.45, 0.01, 0.35, 0.14, 600
+	
+	selectObject: namaSound$
+	plusObject: namaPitch$
+	To PointProcess (cc)
+
+	selectObject: namaSound$
+	plusObject: namaPitch$
+	plusObject: namaPointProcess$
+	voiceReport$ = Voice report: 0, 0, 75, 500, 1.3, 1.6, 0.03, 0.45
+
+	j1 = extractNumber (voiceReport$, "Jitter (local, absolute): ")
+	j2 = extractNumber (voiceReport$, "Jitter (local): ")
+	j3 = extractNumber (voiceReport$, "Jitter (rap): ")
+	j4 = extractNumber (voiceReport$, "Jitter (ppq5): ")
+
+	s1 = extractNumber (voiceReport$, "Shimmer (local, dB): ")
+	s2 = extractNumber (voiceReport$, "Shimmer (local): ")
+	s3 = extractNumber (voiceReport$, "Shimmer (apq3): ")
+	s4 = extractNumber (voiceReport$, "Shimmer (apq5): ")
+	s5 = extractNumber (voiceReport$, "Shimmer (apq11): ")
+
+	p1 = extractNumber (voiceReport$, "Mean pitch: ")
+	p2 = extractNumber (voiceReport$, "Median pitch: ")
+	p3 = extractNumber (voiceReport$, "Standard deviation: ")
+	p4 = extractNumber (voiceReport$, "Minimum pitch: ")
+	p5 = extractNumber (voiceReport$, "Maximum pitch: ")
+
+	h1 = extractNumber (voiceReport$, "Mean harmonics-to-noise ratio: ")
+	h2 = extractNumber (voiceReport$, "Mean noise-to-harmonics ratio: ")
+
+	selectObject: namaSound$
+	To Formant (burg): 0, 5, 5500, 0.025, 50
+
+	selectObject: namaFormant$
+	mF1=Get mean: 1, 0, 0, "hertz"
+	mF2=Get mean: 2, 0, 0, "hertz"
+	mF3=Get mean: 3, 0, 0, "hertz"
+	mF4=Get mean: 4, 0, 0, "hertz"
+
+	sF1=Get standard deviation: 1, 0, 0, "hertz"
+	sF2=Get standard deviation: 2, 0, 0, "hertz"
+	sF3=Get standard deviation: 3, 0, 0, "hertz"
+	sF4=Get standard deviation: 4, 0, 0, "hertz"
+
+	selectObject: namaSound$
+	To Intensity: 75, 0, "yes"
+
+	selectObject: namaIntensity$
+	mInt=Get mean: 0, 0, "energy"
+	sInt=Get standard deviation: 0, 0
+
+	appendFileLine: namaFileOut$, 1," ",day#[i]," ",j1," ",j2," ",s1," ",s2," ",p3," ",h1," ",h2," ",mF1," ",mF2," ",mF3," ",mF4," ",sF1," ",sF2," ",sF3," ",sF4," ",33500/(4*mF1)," ",3*33500/(4*mF2)," ",5*33500/(4*mF3)," ",7*33500/(4*mF4)," ",mInt," ",sInt," ",1
+
+	select all
+	Remove
+
+endfor
+
+
+# HURUF I ======================================================================
+orang$="I"+subjectNum$+"_"
+numDay=7
+day#={2,3,7,8,14,15,17}
+
+for i from 1 to numDay
+
+	namafile$=orang$+string$(day#[i])+".wav"
+	namaSound$="Sound "+orang$+string$(day#[i])
+	namaPitch$="Pitch "+orang$+string$(day#[i])
+	namaPointProcess$="PointProcess "+orang$+string$(day#[i])+"_"+orang$+string$(day#[i])
+
+	namaFormant$="Formant "+orang$+string$(day#[i])
+	namaIntensity$="Intensity "+orang$+string$(day#[i])
+
+	s=Read from file: namafile$
+	Scale peak: 0.99
+
+	View & Edit
+	editor: s
+		Move cursor to: 0
+		Move end of selection by: 0.5
+		Extract selected sound (time from 0)
+		Close
+	endeditor
+	selectObject: namaSound$
+	Remove
+	selectObject: "Sound untitled"
+	Rename: orang$+string$(day#[i])
+
+	selectObject: namaSound$
+	To Pitch (cc): 0, 75, 15, "no", 0.03, 0.45, 0.01, 0.35, 0.14, 600
+	
+	selectObject: namaSound$
+	plusObject: namaPitch$
+	To PointProcess (cc)
+
+	selectObject: namaSound$
+	plusObject: namaPitch$
+	plusObject: namaPointProcess$
+	voiceReport$ = Voice report: 0, 0, 75, 500, 1.3, 1.6, 0.03, 0.45
+
+	j1 = extractNumber (voiceReport$, "Jitter (local, absolute): ")
+	j2 = extractNumber (voiceReport$, "Jitter (local): ")
+	j3 = extractNumber (voiceReport$, "Jitter (rap): ")
+	j4 = extractNumber (voiceReport$, "Jitter (ppq5): ")
+
+	s1 = extractNumber (voiceReport$, "Shimmer (local, dB): ")
+	s2 = extractNumber (voiceReport$, "Shimmer (local): ")
+	s3 = extractNumber (voiceReport$, "Shimmer (apq3): ")
+	s4 = extractNumber (voiceReport$, "Shimmer (apq5): ")
+	s5 = extractNumber (voiceReport$, "Shimmer (apq11): ")
+
+	p1 = extractNumber (voiceReport$, "Mean pitch: ")
+	p2 = extractNumber (voiceReport$, "Median pitch: ")
+	p3 = extractNumber (voiceReport$, "Standard deviation: ")
+	p4 = extractNumber (voiceReport$, "Minimum pitch: ")
+	p5 = extractNumber (voiceReport$, "Maximum pitch: ")
+
+	h1 = extractNumber (voiceReport$, "Mean harmonics-to-noise ratio: ")
+	h2 = extractNumber (voiceReport$, "Mean noise-to-harmonics ratio: ")
+
+	selectObject: namaSound$
+	To Formant (burg): 0, 5, 5500, 0.025, 50
+
+	selectObject: namaFormant$
+	mF1=Get mean: 1, 0, 0, "hertz"
+	mF2=Get mean: 2, 0, 0, "hertz"
+	mF3=Get mean: 3, 0, 0, "hertz"
+	mF4=Get mean: 4, 0, 0, "hertz"
+
+	sF1=Get standard deviation: 1, 0, 0, "hertz"
+	sF2=Get standard deviation: 2, 0, 0, "hertz"
+	sF3=Get standard deviation: 3, 0, 0, "hertz"
+	sF4=Get standard deviation: 4, 0, 0, "hertz"
+
+	selectObject: namaSound$
+	To Intensity: 75, 0, "yes"
+
+	selectObject: namaIntensity$
+	mInt=Get mean: 0, 0, "energy"
+	sInt=Get standard deviation: 0, 0
+
+	appendFileLine: namaFileOut$, 2," ",day#[i]," ",j1," ",j2," ",s1," ",s2," ",p3," ",h1," ",h2," ",mF1," ",mF2," ",mF3," ",mF4," ",sF1," ",sF2," ",sF3," ",sF4," ",33500/(4*mF1)," ",3*33500/(4*mF2)," ",5*33500/(4*mF3)," ",7*33500/(4*mF4)," ",mInt," ",sInt," ",1
+
+	select all
+	Remove
+
+endfor
+
+# HURUF U ======================================================================
+orang$="U"+subjectNum$+"_"
+numDay=7
+day#={2,3,7,8,14,15,17}
+
+for i from 1 to numDay
+
+	namafile$=orang$+string$(day#[i])+".wav"
+	namaSound$="Sound "+orang$+string$(day#[i])
+	namaPitch$="Pitch "+orang$+string$(day#[i])
+	namaPointProcess$="PointProcess "+orang$+string$(day#[i])+"_"+orang$+string$(day#[i])
+
+	namaFormant$="Formant "+orang$+string$(day#[i])
+	namaIntensity$="Intensity "+orang$+string$(day#[i])
+
+	s=Read from file: namafile$
+	Scale peak: 0.99
+
+	View & Edit
+	editor: s
+		Move cursor to: 0
+		Move end of selection by: 0.5
+		Extract selected sound (time from 0)
+		Close
+	endeditor
+	selectObject: namaSound$
+	Remove
+	selectObject: "Sound untitled"
+	Rename: orang$+string$(day#[i])
+	
+	selectObject: namaSound$
+	To Pitch (cc): 0, 75, 15, "no", 0.03, 0.45, 0.01, 0.35, 0.14, 600
+	
+	selectObject: namaSound$
+	plusObject: namaPitch$
+	To PointProcess (cc)
+
+	selectObject: namaSound$
+	plusObject: namaPitch$
+	plusObject: namaPointProcess$
+	voiceReport$ = Voice report: 0, 0, 75, 500, 1.3, 1.6, 0.03, 0.45
+
+	j1 = extractNumber (voiceReport$, "Jitter (local, absolute): ")
+	j2 = extractNumber (voiceReport$, "Jitter (local): ")
+	j3 = extractNumber (voiceReport$, "Jitter (rap): ")
+	j4 = extractNumber (voiceReport$, "Jitter (ppq5): ")
+
+	s1 = extractNumber (voiceReport$, "Shimmer (local, dB): ")
+	s2 = extractNumber (voiceReport$, "Shimmer (local): ")
+	s3 = extractNumber (voiceReport$, "Shimmer (apq3): ")
+	s4 = extractNumber (voiceReport$, "Shimmer (apq5): ")
+	s5 = extractNumber (voiceReport$, "Shimmer (apq11): ")
+
+	p1 = extractNumber (voiceReport$, "Mean pitch: ")
+	p2 = extractNumber (voiceReport$, "Median pitch: ")
+	p3 = extractNumber (voiceReport$, "Standard deviation: ")
+	p4 = extractNumber (voiceReport$, "Minimum pitch: ")
+	p5 = extractNumber (voiceReport$, "Maximum pitch: ")
+
+	h1 = extractNumber (voiceReport$, "Mean harmonics-to-noise ratio: ")
+	h2 = extractNumber (voiceReport$, "Mean noise-to-harmonics ratio: ")
+
+	selectObject: namaSound$
+	To Formant (burg): 0, 5, 5500, 0.025, 50
+
+	selectObject: namaFormant$
+	mF1=Get mean: 1, 0, 0, "hertz"
+	mF2=Get mean: 2, 0, 0, "hertz"
+	mF3=Get mean: 3, 0, 0, "hertz"
+	mF4=Get mean: 4, 0, 0, "hertz"
+
+	sF1=Get standard deviation: 1, 0, 0, "hertz"
+	sF2=Get standard deviation: 2, 0, 0, "hertz"
+	sF3=Get standard deviation: 3, 0, 0, "hertz"
+	sF4=Get standard deviation: 4, 0, 0, "hertz"
+
+	selectObject: namaSound$
+	To Intensity: 75, 0, "yes"
+
+	selectObject: namaIntensity$
+	mInt=Get mean: 0, 0, "energy"
+	sInt=Get standard deviation: 0, 0
+
+	appendFileLine: namaFileOut$, 3," ",day#[i]," ",j1," ",j2," ",s1," ",s2," ",p3," ",h1," ",h2," ",mF1," ",mF2," ",mF3," ",mF4," ",sF1," ",sF2," ",sF3," ",sF4," ",33500/(4*mF1)," ",3*33500/(4*mF2)," ",5*33500/(4*mF3)," ",7*33500/(4*mF4)," ",mInt," ",sInt," ",1
+
+	select all
+	Remove
+
+endfor
+
+# HURUF E ======================================================================
+orang$="E"+subjectNum$+"_"
+numDay=7
+day#={2,3,7,8,14,15,17}
+
+for i from 1 to numDay
+
+	namafile$=orang$+string$(day#[i])+".wav"
+	namaSound$="Sound "+orang$+string$(day#[i])
+	namaPitch$="Pitch "+orang$+string$(day#[i])
+	namaPointProcess$="PointProcess "+orang$+string$(day#[i])+"_"+orang$+string$(day#[i])
+
+	namaFormant$="Formant "+orang$+string$(day#[i])
+	namaIntensity$="Intensity "+orang$+string$(day#[i])
+
+	s=Read from file: namafile$
+	Scale peak: 0.99
+
+	View & Edit
+	editor: s
+		Move cursor to: 0
+		Move end of selection by: 0.5
+		Extract selected sound (time from 0)
+		Close
+	endeditor
+	selectObject: namaSound$
+	Remove
+	selectObject: "Sound untitled"
+	Rename: orang$+string$(day#[i])
+
+	selectObject: namaSound$
+	To Pitch (cc): 0, 75, 15, "no", 0.03, 0.45, 0.01, 0.35, 0.14, 600
+	
+	selectObject: namaSound$
+	plusObject: namaPitch$
+	To PointProcess (cc)
+
+	selectObject: namaSound$
+	plusObject: namaPitch$
+	plusObject: namaPointProcess$
+	voiceReport$ = Voice report: 0, 0, 75, 500, 1.3, 1.6, 0.03, 0.45
+
+	j1 = extractNumber (voiceReport$, "Jitter (local, absolute): ")
+	j2 = extractNumber (voiceReport$, "Jitter (local): ")
+	j3 = extractNumber (voiceReport$, "Jitter (rap): ")
+	j4 = extractNumber (voiceReport$, "Jitter (ppq5): ")
+
+	s1 = extractNumber (voiceReport$, "Shimmer (local, dB): ")
+	s2 = extractNumber (voiceReport$, "Shimmer (local): ")
+	s3 = extractNumber (voiceReport$, "Shimmer (apq3): ")
+	s4 = extractNumber (voiceReport$, "Shimmer (apq5): ")
+	s5 = extractNumber (voiceReport$, "Shimmer (apq11): ")
+
+	p1 = extractNumber (voiceReport$, "Mean pitch: ")
+	p2 = extractNumber (voiceReport$, "Median pitch: ")
+	p3 = extractNumber (voiceReport$, "Standard deviation: ")
+	p4 = extractNumber (voiceReport$, "Minimum pitch: ")
+	p5 = extractNumber (voiceReport$, "Maximum pitch: ")
+
+	h1 = extractNumber (voiceReport$, "Mean harmonics-to-noise ratio: ")
+	h2 = extractNumber (voiceReport$, "Mean noise-to-harmonics ratio: ")
+
+	selectObject: namaSound$
+	To Formant (burg): 0, 5, 5500, 0.025, 50
+
+	selectObject: namaFormant$
+	mF1=Get mean: 1, 0, 0, "hertz"
+	mF2=Get mean: 2, 0, 0, "hertz"
+	mF3=Get mean: 3, 0, 0, "hertz"
+	mF4=Get mean: 4, 0, 0, "hertz"
+
+	sF1=Get standard deviation: 1, 0, 0, "hertz"
+	sF2=Get standard deviation: 2, 0, 0, "hertz"
+	sF3=Get standard deviation: 3, 0, 0, "hertz"
+	sF4=Get standard deviation: 4, 0, 0, "hertz"
+
+	selectObject: namaSound$
+	To Intensity: 75, 0, "yes"
+
+	selectObject: namaIntensity$
+	mInt=Get mean: 0, 0, "energy"
+	sInt=Get standard deviation: 0, 0
+
+	appendFileLine: namaFileOut$, 4," ",day#[i]," ",j1," ",j2," ",s1," ",s2," ",p3," ",h1," ",h2," ",mF1," ",mF2," ",mF3," ",mF4," ",sF1," ",sF2," ",sF3," ",sF4," ",33500/(4*mF1)," ",3*33500/(4*mF2)," ",5*33500/(4*mF3)," ",7*33500/(4*mF4)," ",mInt," ",sInt," ",1
+
+	select all
+	Remove
+
+endfor
+
+# HURUF O ======================================================================
+orang$="O"+subjectNum$+"_"
+numDay=7
+day#={2,3,7,8,14,15,17}
+
+for i from 1 to numDay
+
+	namafile$=orang$+string$(day#[i])+".wav"
+	namaSound$="Sound "+orang$+string$(day#[i])
+	namaPitch$="Pitch "+orang$+string$(day#[i])
+	namaPointProcess$="PointProcess "+orang$+string$(day#[i])+"_"+orang$+string$(day#[i])
+
+	namaFormant$="Formant "+orang$+string$(day#[i])
+	namaIntensity$="Intensity "+orang$+string$(day#[i])
+
+	s=Read from file: namafile$
+	Scale peak: 0.99
+
+	View & Edit
+	editor: s
+		Move cursor to: 0
+		Move end of selection by: 0.5
+		Extract selected sound (time from 0)
+		Close
+	endeditor
+	selectObject: namaSound$
+	Remove
+	selectObject: "Sound untitled"
+	Rename: orang$+string$(day#[i])
+	
+	selectObject: namaSound$
+	To Pitch (cc): 0, 75, 15, "no", 0.03, 0.45, 0.01, 0.35, 0.14, 600
+	
+	selectObject: namaSound$
+	plusObject: namaPitch$
+	To PointProcess (cc)
+
+	selectObject: namaSound$
+	plusObject: namaPitch$
+	plusObject: namaPointProcess$
+	voiceReport$ = Voice report: 0, 0, 75, 500, 1.3, 1.6, 0.03, 0.45
+
+	j1 = extractNumber (voiceReport$, "Jitter (local, absolute): ")
+	j2 = extractNumber (voiceReport$, "Jitter (local): ")
+	j3 = extractNumber (voiceReport$, "Jitter (rap): ")
+	j4 = extractNumber (voiceReport$, "Jitter (ppq5): ")
+
+	s1 = extractNumber (voiceReport$, "Shimmer (local, dB): ")
+	s2 = extractNumber (voiceReport$, "Shimmer (local): ")
+	s3 = extractNumber (voiceReport$, "Shimmer (apq3): ")
+	s4 = extractNumber (voiceReport$, "Shimmer (apq5): ")
+	s5 = extractNumber (voiceReport$, "Shimmer (apq11): ")
+
+	p1 = extractNumber (voiceReport$, "Mean pitch: ")
+	p2 = extractNumber (voiceReport$, "Median pitch: ")
+	p3 = extractNumber (voiceReport$, "Standard deviation: ")
+	p4 = extractNumber (voiceReport$, "Minimum pitch: ")
+	p5 = extractNumber (voiceReport$, "Maximum pitch: ")
+
+	h1 = extractNumber (voiceReport$, "Mean harmonics-to-noise ratio: ")
+	h2 = extractNumber (voiceReport$, "Mean noise-to-harmonics ratio: ")
+
+	selectObject: namaSound$
+	To Formant (burg): 0, 5, 5500, 0.025, 50
+
+	selectObject: namaFormant$
+	mF1=Get mean: 1, 0, 0, "hertz"
+	mF2=Get mean: 2, 0, 0, "hertz"
+	mF3=Get mean: 3, 0, 0, "hertz"
+	mF4=Get mean: 4, 0, 0, "hertz"
+
+	sF1=Get standard deviation: 1, 0, 0, "hertz"
+	sF2=Get standard deviation: 2, 0, 0, "hertz"
+	sF3=Get standard deviation: 3, 0, 0, "hertz"
+	sF4=Get standard deviation: 4, 0, 0, "hertz"
+
+	selectObject: namaSound$
+	To Intensity: 75, 0, "yes"
+
+	selectObject: namaIntensity$
+	mInt=Get mean: 0, 0, "energy"
+	sInt=Get standard deviation: 0, 0
+
+	appendFileLine: namaFileOut$, 5," ",day#[i]," ",j1," ",j2," ",s1," ",s2," ",p3," ",h1," ",h2," ",mF1," ",mF2," ",mF3," ",mF4," ",sF1," ",sF2," ",sF3," ",sF4," ",33500/(4*mF1)," ",3*33500/(4*mF2)," ",5*33500/(4*mF3)," ",7*33500/(4*mF4)," ",mInt," ",sInt," ",1
+
+	select all
+	Remove
+
+endfor
+
+
+# HURUF M ======================================================================
+orang$="M"+subjectNum$+"_"
+numDay=4
+day#={3,8,15,17}
+
+for i from 1 to numDay
+
+	namafile$=orang$+string$(day#[i])+".wav"
+	namaSound$="Sound "+orang$+string$(day#[i])
+	namaPitch$="Pitch "+orang$+string$(day#[i])
+	namaPointProcess$="PointProcess "+orang$+string$(day#[i])+"_"+orang$+string$(day#[i])
+
+	namaFormant$="Formant "+orang$+string$(day#[i])
+	namaIntensity$="Intensity "+orang$+string$(day#[i])
+
+	s=Read from file: namafile$
+	Scale peak: 0.99
+
+	View & Edit
+	editor: s
+		Move cursor to: 0
+		Move end of selection by: 0.5
+		Extract selected sound (time from 0)
+		Close
+	endeditor
+	selectObject: namaSound$
+	Remove
+	selectObject: "Sound untitled"
+	Rename: orang$+string$(day#[i])
+	
+	selectObject: namaSound$
+	To Pitch (cc): 0, 75, 15, "no", 0.03, 0.45, 0.01, 0.35, 0.14, 600
+	
+	selectObject: namaSound$
+	plusObject: namaPitch$
+	To PointProcess (cc)
+
+	selectObject: namaSound$
+	plusObject: namaPitch$
+	plusObject: namaPointProcess$
+	voiceReport$ = Voice report: 0, 0, 75, 500, 1.3, 1.6, 0.03, 0.45
+
+	j1 = extractNumber (voiceReport$, "Jitter (local, absolute): ")
+	j2 = extractNumber (voiceReport$, "Jitter (local): ")
+	j3 = extractNumber (voiceReport$, "Jitter (rap): ")
+	j4 = extractNumber (voiceReport$, "Jitter (ppq5): ")
+
+	s1 = extractNumber (voiceReport$, "Shimmer (local, dB): ")
+	s2 = extractNumber (voiceReport$, "Shimmer (local): ")
+	s3 = extractNumber (voiceReport$, "Shimmer (apq3): ")
+	s4 = extractNumber (voiceReport$, "Shimmer (apq5): ")
+	s5 = extractNumber (voiceReport$, "Shimmer (apq11): ")
+
+	p1 = extractNumber (voiceReport$, "Mean pitch: ")
+	p2 = extractNumber (voiceReport$, "Median pitch: ")
+	p3 = extractNumber (voiceReport$, "Standard deviation: ")
+	p4 = extractNumber (voiceReport$, "Minimum pitch: ")
+	p5 = extractNumber (voiceReport$, "Maximum pitch: ")
+
+	h1 = extractNumber (voiceReport$, "Mean harmonics-to-noise ratio: ")
+	h2 = extractNumber (voiceReport$, "Mean noise-to-harmonics ratio: ")
+
+	selectObject: namaSound$
+	To Formant (burg): 0, 5, 5500, 0.025, 50
+
+	selectObject: namaFormant$
+	mF1=Get mean: 1, 0, 0, "hertz"
+	mF2=Get mean: 2, 0, 0, "hertz"
+	mF3=Get mean: 3, 0, 0, "hertz"
+	mF4=Get mean: 4, 0, 0, "hertz"
+
+	sF1=Get standard deviation: 1, 0, 0, "hertz"
+	sF2=Get standard deviation: 2, 0, 0, "hertz"
+	sF3=Get standard deviation: 3, 0, 0, "hertz"
+	sF4=Get standard deviation: 4, 0, 0, "hertz"
+
+	selectObject: namaSound$
+	To Intensity: 75, 0, "yes"
+
+	selectObject: namaIntensity$
+	mInt=Get mean: 0, 0, "energy"
+	sInt=Get standard deviation: 0, 0
+
+	appendFileLine: namaFileOut$, 6," ",day#[i]," ",j1," ",j2," ",s1," ",s2," ",p3," ",h1," ",h2," ",mF1," ",mF2," ",mF3," ",mF4," ",sF1," ",sF2," ",sF3," ",sF4," ",33500/(4*mF1)," ",3*33500/(4*mF2)," ",5*33500/(4*mF3)," ",7*33500/(4*mF4)," ",mInt," ",sInt," ",1
+
+	select all
+	Remove
+
+endfor

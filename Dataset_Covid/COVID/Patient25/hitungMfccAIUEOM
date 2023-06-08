@@ -1,0 +1,238 @@
+subjectNum$="25"
+namaFileOut$="MFCC"+subjectNum$+".txt"
+
+# HURUF A ======================================================================
+orang$="A"+subjectNum$+"_"
+numDay=6
+day#={1,2,4,5,6,8}
+
+for i from 1 to numDay
+
+	namafile$=orang$+string$(day#[i])+".wav"
+	namaSound$="Sound "+orang$+string$(day#[i])
+	namaMFCC$="MFCC "+orang$+string$(day#[i])
+
+	s=Read from file: namafile$
+	Scale peak: 0.99
+	
+	selectObject: namaSound$
+	To MFCC: 12, 0.015, 0.005, 100, 100, 0
+
+	selectObject: namaMFCC$
+	m0=Get c0 value in frame: 1
+	m1=Get value in frame: 1, 1
+	m2=Get value in frame: 1, 2
+	m3=Get value in frame: 1, 3
+	m4=Get value in frame: 1, 4
+	m5=Get value in frame: 1, 5
+	m6=Get value in frame: 1, 6
+	m7=Get value in frame: 1, 7
+	m8=Get value in frame: 1, 8
+	m9=Get value in frame: 1, 9
+	m10=Get value in frame: 1, 10
+	m11=Get value in frame: 1, 11
+	m12=Get value in frame: 1, 12	
+
+	appendFileLine: namaFileOut$, 1," ",day#[i]," ",m0," ",m1," ",m2," ",m3," ",m4," ",m5," ",m6," ",m7," ",m8," ",m9," ",m10," ",m11," ",m12," ",1
+
+	select all
+	Remove
+
+endfor
+
+
+# HURUF I ======================================================================
+orang$="I"+subjectNum$+"_"
+numDay=6
+day#={1,2,4,5,6,8}
+
+for i from 1 to numDay
+
+	namafile$=orang$+string$(day#[i])+".wav"
+	namaSound$="Sound "+orang$+string$(day#[i])
+	namaMFCC$="MFCC "+orang$+string$(day#[i])
+
+	s=Read from file: namafile$
+	Scale peak: 0.99
+	
+	selectObject: namaSound$
+	To MFCC: 12, 0.015, 0.005, 100, 100, 0
+
+	selectObject: namaMFCC$
+	m0=Get c0 value in frame: 1
+	m1=Get value in frame: 1, 1
+	m2=Get value in frame: 1, 2
+	m3=Get value in frame: 1, 3
+	m4=Get value in frame: 1, 4
+	m5=Get value in frame: 1, 5
+	m6=Get value in frame: 1, 6
+	m7=Get value in frame: 1, 7
+	m8=Get value in frame: 1, 8
+	m9=Get value in frame: 1, 9
+	m10=Get value in frame: 1, 10
+	m11=Get value in frame: 1, 11
+	m12=Get value in frame: 1, 12	
+
+	appendFileLine: namaFileOut$, 2," ",day#[i]," ",m0," ",m1," ",m2," ",m3," ",m4," ",m5," ",m6," ",m7," ",m8," ",m9," ",m10," ",m11," ",m12," ",1
+
+	select all
+	Remove
+
+endfor
+
+# HURUF U ======================================================================
+orang$="U"+subjectNum$+"_"
+numDay=6
+day#={1,2,4,5,6,8}
+
+for i from 1 to numDay
+
+	namafile$=orang$+string$(day#[i])+".wav"
+	namaSound$="Sound "+orang$+string$(day#[i])
+	namaMFCC$="MFCC "+orang$+string$(day#[i])
+
+	s=Read from file: namafile$
+	Scale peak: 0.99
+	
+	selectObject: namaSound$
+	To MFCC: 12, 0.015, 0.005, 100, 100, 0
+
+	selectObject: namaMFCC$
+	m0=Get c0 value in frame: 1
+	m1=Get value in frame: 1, 1
+	m2=Get value in frame: 1, 2
+	m3=Get value in frame: 1, 3
+	m4=Get value in frame: 1, 4
+	m5=Get value in frame: 1, 5
+	m6=Get value in frame: 1, 6
+	m7=Get value in frame: 1, 7
+	m8=Get value in frame: 1, 8
+	m9=Get value in frame: 1, 9
+	m10=Get value in frame: 1, 10
+	m11=Get value in frame: 1, 11
+	m12=Get value in frame: 1, 12	
+
+	appendFileLine: namaFileOut$, 3," ",day#[i]," ",m0," ",m1," ",m2," ",m3," ",m4," ",m5," ",m6," ",m7," ",m8," ",m9," ",m10," ",m11," ",m12," ",1
+
+	select all
+	Remove
+
+endfor
+
+# HURUF E ======================================================================
+orang$="E"+subjectNum$+"_"
+numDay=6
+day#={1,2,4,5,6,8}
+
+for i from 1 to numDay
+
+	namafile$=orang$+string$(day#[i])+".wav"
+	namaSound$="Sound "+orang$+string$(day#[i])
+	namaMFCC$="MFCC "+orang$+string$(day#[i])
+
+	s=Read from file: namafile$
+	Scale peak: 0.99
+	
+	selectObject: namaSound$
+	To MFCC: 12, 0.015, 0.005, 100, 100, 0
+
+	selectObject: namaMFCC$
+	m0=Get c0 value in frame: 1
+	m1=Get value in frame: 1, 1
+	m2=Get value in frame: 1, 2
+	m3=Get value in frame: 1, 3
+	m4=Get value in frame: 1, 4
+	m5=Get value in frame: 1, 5
+	m6=Get value in frame: 1, 6
+	m7=Get value in frame: 1, 7
+	m8=Get value in frame: 1, 8
+	m9=Get value in frame: 1, 9
+	m10=Get value in frame: 1, 10
+	m11=Get value in frame: 1, 11
+	m12=Get value in frame: 1, 12	
+
+	appendFileLine: namaFileOut$, 4," ",day#[i]," ",m0," ",m1," ",m2," ",m3," ",m4," ",m5," ",m6," ",m7," ",m8," ",m9," ",m10," ",m11," ",m12," ",1
+
+	select all
+	Remove
+
+endfor
+
+# HURUF O ======================================================================
+orang$="O"+subjectNum$+"_"
+numDay=6
+day#={1,2,4,5,6,8}
+
+for i from 1 to numDay
+
+	namafile$=orang$+string$(day#[i])+".wav"
+	namaSound$="Sound "+orang$+string$(day#[i])
+	namaMFCC$="MFCC "+orang$+string$(day#[i])
+
+	s=Read from file: namafile$
+	Scale peak: 0.99
+	
+	selectObject: namaSound$
+	To MFCC: 12, 0.015, 0.005, 100, 100, 0
+
+	selectObject: namaMFCC$
+	m0=Get c0 value in frame: 1
+	m1=Get value in frame: 1, 1
+	m2=Get value in frame: 1, 2
+	m3=Get value in frame: 1, 3
+	m4=Get value in frame: 1, 4
+	m5=Get value in frame: 1, 5
+	m6=Get value in frame: 1, 6
+	m7=Get value in frame: 1, 7
+	m8=Get value in frame: 1, 8
+	m9=Get value in frame: 1, 9
+	m10=Get value in frame: 1, 10
+	m11=Get value in frame: 1, 11
+	m12=Get value in frame: 1, 12	
+
+	appendFileLine: namaFileOut$, 5," ",day#[i]," ",m0," ",m1," ",m2," ",m3," ",m4," ",m5," ",m6," ",m7," ",m8," ",m9," ",m10," ",m11," ",m12," ",1
+
+	select all
+	Remove
+
+endfor
+
+
+# HURUF M ======================================================================
+orang$="M"+subjectNum$+"_"
+numDay=6
+day#={1,2,4,5,6,8}
+
+for i from 1 to numDay
+
+	namafile$=orang$+string$(day#[i])+".wav"
+	namaSound$="Sound "+orang$+string$(day#[i])
+	namaMFCC$="MFCC "+orang$+string$(day#[i])
+
+	s=Read from file: namafile$
+	Scale peak: 0.99
+	
+	selectObject: namaSound$
+	To MFCC: 12, 0.015, 0.005, 100, 100, 0
+
+	selectObject: namaMFCC$
+	m0=Get c0 value in frame: 1
+	m1=Get value in frame: 1, 1
+	m2=Get value in frame: 1, 2
+	m3=Get value in frame: 1, 3
+	m4=Get value in frame: 1, 4
+	m5=Get value in frame: 1, 5
+	m6=Get value in frame: 1, 6
+	m7=Get value in frame: 1, 7
+	m8=Get value in frame: 1, 8
+	m9=Get value in frame: 1, 9
+	m10=Get value in frame: 1, 10
+	m11=Get value in frame: 1, 11
+	m12=Get value in frame: 1, 12	
+
+	appendFileLine: namaFileOut$, 6," ",day#[i]," ",m0," ",m1," ",m2," ",m3," ",m4," ",m5," ",m6," ",m7," ",m8," ",m9," ",m10," ",m11," ",m12," ",1
+
+	select all
+	Remove
+
+endfor
