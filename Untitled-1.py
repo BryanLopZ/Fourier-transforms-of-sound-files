@@ -4,7 +4,7 @@ import numpy as np
 import soundfile as sf
 from scipy.signal import find_peaks
 
-ruta = r"C:\Users\usuario\Downloads\Proyecto\Phonemas\M3_6.wav"
+ruta = r"C:\Users\usuario\Downloads\Proyecto\Phonemas\A9_10.wav"
 x, fs = sf.read(ruta)
 X = np.fft.fft(x)
 Spectre = np.fft.fftshift(np.abs(X))
